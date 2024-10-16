@@ -3,14 +3,11 @@ package br.edu.ifpr.arraySorts;
 public class ArraySorts {
     
     public static void bubbleSort(int[] array){
-        long totalComparation = 0, totalSwap = 0;
         boolean swap = true;
         while(swap){
             swap = false;
             for(int i = 1;i< array.length;i++){
-                totalComparation++;
                 if(array[i-1]>array[i]){
-                    totalSwap++;
                     int temp = array[i];
                     array[i] = array[i-1];
                     array[i-1] = temp;
@@ -18,45 +15,36 @@ public class ArraySorts {
                 }
             }
         }
-        System.out.println("Bubble sort\nTotal de comparações: " + totalComparation + "\nTotal de trocas: " + totalSwap);
+        
     }
 
     public static void insertionSort(int[] array) {
-        long totalComparation = 0, totalSwap = 0;
         for (int i = 1; i < array.length; i++) {
             int key = array[i];
             int j = i - 1;
             while (j >= 0 && array[j]>key) {
-                totalComparation++;
                 array[j + 1] = array[j];
                 j--;
             }
-            totalSwap++;
             array[j + 1] = key;
         }
-        System.out.println("Insertion Sort\nTotal de comparações: " + totalComparation + "\nTotal de trocas: " + totalSwap);
     }
 
     public static void selectionSort(int[] array) {
-        long totalComparation = 0, totalSwap = 0;
         for (int i = 0; i < array.length; i++) {
             int key = i;
             for (int j = i+1; j < array.length; j++) {
-                totalComparation++;
                 if (array[j]<array[key])
                     key = j;
             }
             if (key != i) {
-                totalSwap++;
                 int temp = array[i];
                 array[i] = array[key];
                 array[key] = temp;
             }
         }
-        System.out.println("Selection\nTotal de comparações: " + totalComparation + "\nTotal de trocas: " + totalSwap);
     }    
     public static void mergeSort(int[] array, int[] aux, int begin, int end) {
-        long totalComparation = 0, totalSwap = 0;
         if (begin < end){
             int middle = (begin + end) / 2;
             mergeSort(array, aux, begin, middle);
@@ -67,7 +55,6 @@ public class ArraySorts {
             int left = begin;
             int right = middle + 1;
             for (int i = begin; i <= end; i++) {
-                totalComparation++;
                 if (left > middle) {
                     array[i] = aux[right++];
                 } else if (right > end) {
@@ -75,11 +62,9 @@ public class ArraySorts {
                 } else if (aux[left] < aux[right]) {
                     array[i] = aux[left++];
                 } else {
-                    totalSwap++;
                     array[i] = aux[right++];
                 }
             }
         }
-        System.out.println("Merge Sort\nTotal de comparações: " + totalComparation + "\nTotal de trocas: " + totalSwap);
     }
 }

@@ -7,8 +7,8 @@ import java.util.Random;
 
 public class FileGenerator {
     public static void main(String[] args) {
-        String fileName = "example1kk.txt";
-        Integer[] vetor = new Integer[209290]; // 2000 = 10k // 20900 = 100k // 209290 = 1m
+        String fileName = "example10kk.txt";
+        Integer[] vetor = new Integer[2093920]; // 2000 = 10k // 20900 = 100k // 209290 = 1m //2093920 = 10m
         Random random = new Random();
         for (int i = 0; i < vetor.length; i++) {
             vetor[i] = random.nextInt(1000);
