@@ -15,14 +15,12 @@ public class FileGenerator {
         }
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write("{");
             for (int i = 0; i < vetor.length; i++) {
                 writer.write(String.valueOf(vetor[i]));
                 if(i<vetor.length - 1){
                     writer.write(", ");
                 }
             }
-            writer.write("}");
         } catch (IOException e) {
             e.printStackTrace();
         }
